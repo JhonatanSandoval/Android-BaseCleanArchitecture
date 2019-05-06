@@ -10,6 +10,8 @@ buildscript {
         androidXTestRunnerVersion = "1.1.0-alpha4"
         androidXTestEspressoVersion = "3.1.0-alpha4"
 
+        multidexVersion = "2.0.0"
+
         appCompatXVersion = "1.0.0-beta01"
         androidxCommon = "2.0.0-rc01"
         lifeCycleRuntimeVersion = "2.0.0-rc01"
@@ -61,6 +63,7 @@ buildscript {
         ]
 
         presentationDependencies = [
+                muldidex           : ('androidx.multidex:multidex:' + multidexVersion),
                 butterKnife        : ('com.jakewharton:butterknife:' + butterKnifeVersion),
                 butterKnifeCompiler: ('com.jakewharton:butterknife-compiler:' + butterKnifeVersion),
                 recyclerView       : ('androidx.recyclerview:recyclerview:' + appCompatXVersion),

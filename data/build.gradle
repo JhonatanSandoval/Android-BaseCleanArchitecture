@@ -33,6 +33,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+    implementation "androidx.core:core-ktx:+"
     implementation project(":domain")
 
     // tests
@@ -57,5 +58,9 @@ dependencies {
     implementation dataDependencies.gson
     implementation dataDependencies.okHttp
     implementation dataDependencies.okHttpInterceptor
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
+}
+repositories {
+    mavenCentral()
 }
