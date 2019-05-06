@@ -1,8 +1,7 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     def globalConfig = rootProject.extensions.getByName("ext")
@@ -22,19 +21,53 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.0.0-beta01'
     implementation 'androidx.core:core-ktx:1.1.0-alpha05'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
 
     implementation project(":domain")
     implementation project(":data")
 
+    // tests
+    testImplementation tests.junit
+    androidTestImplementation tests.testRunner
+    androidTestImplementation tests.testEspresso
+
+    // android X
+    implementation everyOne.appCompatX
+    implementation presentationDependencies.common
+    implementation presentationDependencies.recyclerView
+    implementation presentationDependencies.cardView
+    implementation presentationDependencies.lifecycleRuntime
+    implementation presentationDependencies.lifecycleViewModel
+    annotationProcessor presentationDependencies.lifecycleCompiler
+    implementation presentationDependencies.viewPager
+    implementation presentationDependencies.design
+    implementation presentationDependencies.pagingRuntime
+    implementation presentationDependencies.pagingRxJava2
+
+    // rx
     implementation everyOne.rxJava
+    implementation everyOne.rxAndroid
+
+    // butterknife
+    implementation presentationDependencies.butterKnife
+    annotationProcessor presentationDependencies.butterKnifeCompiler
+
+    // dagger core
+    implementation everyOne.dagger
+    annotationProcessor everyOne.daggerCompiler
+
+    // dagger android
+    implementation everyOne.daggerAndroid
+    implementation everyOne.daggerAndroidSupport
+    annotationProcessor everyOne.daggerAndroidProcessor
+
 }

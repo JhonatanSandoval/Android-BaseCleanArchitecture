@@ -2,7 +2,11 @@ apply plugin: 'java-library'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    testImplementation tests.junit
+
     implementation everyOne.rxJava
+    implementation everyOne.rxAndroid
 
 }
 

@@ -6,15 +6,48 @@ buildscript {
         version = 1
         versionName = "1.0.0"
 
+        jUnitVersion = "4.12"
+        androidXTestRunnerVersion = "1.1.0-alpha4"
+        androidXTestEspressoVersion = "3.1.0-alpha4"
+
+        appCompatXVersion = "1.0.0-beta01"
+        androidxCommon = "2.0.0-rc01"
+        lifeCycleRuntimeVersion = "2.0.0-rc01"
+        lifeCycleViewModelVersion = "2.0.0-rc01"
+        lifeCycleCompilerVersion = "2.0.0-rc01"
+        viewPagerVersion = "1.0.0"
+        designVersion = "1.0.0-rc01"
+        pagingVersion = "2.0.0-rc01"
 
         rxJavaVersion = "2.1.6"
+        rxAndroidVersion = "2.0.1"
+        androidArchVersion = "1.0.0"
+        retrofitVersion = "2.5.0"
+        butterKnifeVersion = "8.8.1"
+        daggerVersion = "2.15"
+
+        tests = [
+                junit : ('junit:junit:' + jUnitVersion),
+                testRunner: ('androidx.test:runner:' + androidXTestRunnerVersion),
+                testEspresso: ('androidx.test.espresso:espresso-core:' + androidXTestEspressoVersion),
+        ]
 
         everyOne = [
-            rxJava: ('io.reactivex.rxjava2:rxjava:' + rxJavaVersion),
+                rxJava                : ('io.reactivex.rxjava2:rxjava:' + rxJavaVersion),
+                rxAndroid             : ('io.reactivex.rxjava2:rxandroid:' + rxAndroidVersion),
+                appCompatX            : ('androidx.appcompat:appcompat:' + appCompatXVersion),
+                dagger                : ('com.google.dagger:dagger:' + daggerVersion),
+                daggerCompiler        : ('com.google.dagger:dagger-compiler:' + daggerVersion),
+                daggerAndroid         : ('com.google.dagger:dagger-android:' + daggerVersion),
+                daggerAndroidSupport  : ('com.google.dagger:dagger-android-support:' + daggerVersion),
+                daggerAndroidProcessor: ('com.google.dagger:dagger-android-processor:' + daggerVersion),
         ]
 
         dataDependencies = [
-
+                roomRuntime : ('android.arch.persistence.room:runtime:' + androidArchVersion),
+                roomRxJava2 : ('android.arch.persistence.room:rxjava2:' + androidArchVersion),
+                roomCompiler: ('android.arch.persistence.room:compiler:' + androidArchVersion),
+                retrofit    : ('com.squareup.retrofit2:retrofit:' + retrofitVersion)
         ]
 
         domainDependencies = [
@@ -22,7 +55,18 @@ buildscript {
         ]
 
         presentationDependencies = [
-
+                butterKnife        : ('com.jakewharton:butterknife:' + butterKnifeVersion),
+                butterKnifeCompiler: ('com.jakewharton:butterknife-compiler:' + butterKnifeVersion),
+                recyclerView: ('androidx.recyclerview:recyclerview:' + appCompatXVersion),
+                cardView: ('androidx.cardview:cardview:' + appCompatXVersion),
+                common: ('androidx.arch.core:core-common:' + androidxCommon),
+                lifecycleRuntime: ('androidx.lifecycle:lifecycle-runtime:' + lifeCycleRuntimeVersion),
+                lifecycleViewModel: ('androidx.lifecycle:lifecycle-viewmodel:' + lifeCycleViewModelVersion),
+                lifecycleCompiler: ('androidx.lifecycle:lifecycle-compiler:' + lifeCycleViewModelVersion),
+                viewPager: ('androidx.viewpager:viewpager:' + viewPagerVersion),
+                design: ('com.google.android.material:material:' + designVersion),
+                pagingRuntime: ('androidx.paging:paging-runtime:' + pagingVersion),
+                pagingRxJava2: ('androidx.paging:paging-rxjava2:' + pagingVersion)
         ]
 
 
