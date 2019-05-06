@@ -1,0 +1,30 @@
+buildscript {
+    ext {
+        androidCompileSdkVersion = 28
+        androidMinSdkVersion = 21
+        androidTargetSdkVersion = 28
+        version = 1
+        versionName = "1.0.0"
+
+
+        rxJavaVersion = "2.1.6"
+
+        everyOne = [
+            rxJava: ('io.reactivex.rxjava2:rxjava:' + rxJavaVersion),
+        ]
+
+        dataDependencies = [
+
+        ]
+
+        domainDependencies = [
+
+        ]
+
+        presentationDependencies = [
+
+        ]
+
+
+    }
+}

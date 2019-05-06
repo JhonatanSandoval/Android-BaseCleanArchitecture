@@ -5,13 +5,15 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 28
+    def globalConfig = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion globalConfig.androidCompileSdkVersion
     defaultConfig {
         applicationId "net.kreatec.base"
-        minSdkVersion 21
-        targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion globalConfig.androidMinSdkVersion
+        targetSdkVersion globalConfig.androidTargetSdkVersion
+        versionCode globalConfig.version
+        versionName globalConfig.versionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -30,4 +32,9 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
+
+    implementation project(":domain")
+    implementation project(":data")
+
+    implementation everyOne.rxJava
 }
