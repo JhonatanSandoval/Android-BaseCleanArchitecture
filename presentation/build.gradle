@@ -59,7 +59,7 @@ dependencies {
 
     // butterknife
     implementation presentationDependencies.butterKnife
-    annotationProcessor presentationDependencies.butterKnifeCompiler
+    kapt presentationDependencies.butterKnifeCompiler
 
     // dagger core
     implementation everyOne.dagger

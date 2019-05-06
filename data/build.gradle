@@ -54,5 +54,8 @@ dependencies {
 
     // retrofit
     implementation dataDependencies.retrofit
+    implementation dataDependencies.gson
+    implementation dataDependencies.okHttp
+    implementation dataDependencies.okHttpInterceptor
 
 }

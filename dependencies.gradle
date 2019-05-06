@@ -23,12 +23,15 @@ buildscript {
         rxAndroidVersion = "2.0.1"
         androidArchVersion = "1.0.0"
         retrofitVersion = "2.5.0"
-        butterKnifeVersion = "8.8.1"
+        gsonVersion = "2.5.0"
+        okHttpClientVersion = "3.14.1"
+        okHttpInterceptorVersion = "3.14.1"
+        butterKnifeVersion = "10.1.0"
         daggerVersion = "2.15"
 
         tests = [
-                junit : ('junit:junit:' + jUnitVersion),
-                testRunner: ('androidx.test:runner:' + androidXTestRunnerVersion),
+                junit       : ('junit:junit:' + jUnitVersion),
+                testRunner  : ('androidx.test:runner:' + androidXTestRunnerVersion),
                 testEspresso: ('androidx.test.espresso:espresso-core:' + androidXTestEspressoVersion),
         ]
 
@@ -44,10 +47,13 @@ buildscript {
         ]
 
         dataDependencies = [
-                roomRuntime : ('android.arch.persistence.room:runtime:' + androidArchVersion),
-                roomRxJava2 : ('android.arch.persistence.room:rxjava2:' + androidArchVersion),
-                roomCompiler: ('android.arch.persistence.room:compiler:' + androidArchVersion),
-                retrofit    : ('com.squareup.retrofit2:retrofit:' + retrofitVersion)
+                roomRuntime      : ('android.arch.persistence.room:runtime:' + androidArchVersion),
+                roomRxJava2      : ('android.arch.persistence.room:rxjava2:' + androidArchVersion),
+                roomCompiler     : ('android.arch.persistence.room:compiler:' + androidArchVersion),
+                retrofit         : ('com.squareup.retrofit2:retrofit:' + retrofitVersion),
+                gson             : ('com.squareup.retrofit2:converter-gson:' + gsonVersion),
+                okHttp           : ('com.squareup.okhttp3:okhttp:' + okHttpClientVersion),
+                okHttpInterceptor: ('com.squareup.okhttp3:logging-interceptor:' + okHttpInterceptorVersion)
         ]
 
         domainDependencies = [
@@ -57,16 +63,16 @@ buildscript {
         presentationDependencies = [
                 butterKnife        : ('com.jakewharton:butterknife:' + butterKnifeVersion),
                 butterKnifeCompiler: ('com.jakewharton:butterknife-compiler:' + butterKnifeVersion),
-                recyclerView: ('androidx.recyclerview:recyclerview:' + appCompatXVersion),
-                cardView: ('androidx.cardview:cardview:' + appCompatXVersion),
-                common: ('androidx.arch.core:core-common:' + androidxCommon),
-                lifecycleRuntime: ('androidx.lifecycle:lifecycle-runtime:' + lifeCycleRuntimeVersion),
-                lifecycleViewModel: ('androidx.lifecycle:lifecycle-viewmodel:' + lifeCycleViewModelVersion),
-                lifecycleCompiler: ('androidx.lifecycle:lifecycle-compiler:' + lifeCycleViewModelVersion),
-                viewPager: ('androidx.viewpager:viewpager:' + viewPagerVersion),
-                design: ('com.google.android.material:material:' + designVersion),
-                pagingRuntime: ('androidx.paging:paging-runtime:' + pagingVersion),
-                pagingRxJava2: ('androidx.paging:paging-rxjava2:' + pagingVersion)
+                recyclerView       : ('androidx.recyclerview:recyclerview:' + appCompatXVersion),
+                cardView           : ('androidx.cardview:cardview:' + appCompatXVersion),
+                common             : ('androidx.arch.core:core-common:' + androidxCommon),
+                lifecycleRuntime   : ('androidx.lifecycle:lifecycle-runtime:' + lifeCycleRuntimeVersion),
+                lifecycleViewModel : ('androidx.lifecycle:lifecycle-viewmodel:' + lifeCycleViewModelVersion),
+                lifecycleCompiler  : ('androidx.lifecycle:lifecycle-compiler:' + lifeCycleViewModelVersion),
+                viewPager          : ('androidx.viewpager:viewpager:' + viewPagerVersion),
+                design             : ('com.google.android.material:material:' + designVersion),
+                pagingRuntime      : ('androidx.paging:paging-runtime:' + pagingVersion),
+                pagingRxJava2      : ('androidx.paging:paging-rxjava2:' + pagingVersion)
         ]
 
 
